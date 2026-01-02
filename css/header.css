@@ -1,0 +1,71 @@
+
+/*Header*/
+.header {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--color-cabecera-footer);
+
+}
+
+.header__img {
+    width: 100px;
+    margin-left: 20px;
+}
+
+.header__title {
+    margin-top: 10px;
+    margin-left: 20px;
+    font-size: 40px;
+    color: var(--texto-blanco);
+}
+
+/*Menu de la página*/
+.nav {
+    border: 1px solid var(--color-bordes);/* gris suave */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    height: 30px;
+    margin-top: 20px;
+    margin-left: 90px;
+    background-color: var(--color-menu);/* azul del menú */
+}
+
+.nav__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.nav__item {
+    font-size: 20px;
+    text-decoration: none;
+    list-style: none;
+
+}
+
+.nav__link {
+    color: var(--texto-blanco);
+    text-decoration: none;
+    transition: color 0.3s;/* transición suave */
+
+}
+
+.nav__link:hover {
+    color: var(--color-boton);/* efecto al pasar el ratón */
+}
+/* Icono GitHub */
+.github-link i {
+   color: var(--texto-blanco);
+    font-size: 24px; /* tamaño del icono */
+    transition: color 0.3s; /* transición suave al cambiar color */
+    margin-top: 20px;
+    margin-left:30px;
+
+}
+
+/* Cambiar color al pasar el ratón */
+.github-link i:hover {
+    color: #6e5494; 
+    cursor: pointer; 
+}

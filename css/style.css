@@ -1,25 +1,11 @@
 :root {
-    /* ===== COLORES BASE ===== */
-    --color-fondo: #F9F9F9;
     --color-cabecera-footer: #1E3A5F;
     --color-menu: #2F80ED;
     --color-bordes: #E0E0E0;
-
-
-    --texto-principal: #333333;
-    --texto-secundario: #666666;
-    --texto-titulos: #1E3A5F;
     --texto-subtitulos: #2F80ED;
     --texto-blanco: #FFFFFF;
-
-
     --color-boton: #27AE60;
     --color-boton-hover: #219150;
-    --respuesta-correcta: #DFF5E1;
-    --respuesta-incorrecta: #FDE2E2;
-    --color-error: #E74C3C;
-
-
 }
 
 * {
@@ -35,63 +21,6 @@ body {
 
 }
 
-/*Header*/
-.header {
-    display: flex;
-    flex-direction: row;
-    background-color: var(--color-cabecera-footer);
-
-}
-
-.header__img {
-    width: 100px;
-    margin-left: 20px;
-}
-
-.header__title {
-    margin-top: 10px;
-    margin-left: 20px;
-    font-size: 40px;
-    color: var(--texto-blanco);
-}
-
-/*Menu de la página*/
-.nav {
-    border: 1px solid var(--color-bordes);
-    /* gris suave */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 50%;
-    height: 30px;
-    margin-top: 20px;
-    margin-left: 90px;
-    background-color: var(--color-menu);/* azul del menú */
-}
-
-.nav__list {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-
-}
-
-.nav__item {
-    font-size: 20px;
-    text-decoration: none;
-    list-style: none;
-
-}
-
-.nav__link {
-    color: var(--texto-blanco);
-    text-decoration: none;
-    transition: color 0.3s;/* transición suave */
-
-}
-
-.nav__link:hover {
-    color: var(--color-boton);/* efecto al pasar el ratón */
-}
-
 /*Contenedor principal*/
 .container {
  display: grid;
@@ -105,7 +34,12 @@ body {
 .game__title {
     color: var(--texto-subtitulos);
 }
-
+.game__input{
+   margin-top: 10px; 
+}
+.game__buttons{
+    margin-top: 25px;
+}
 .game__btn {
     background-color: var(--color-boton);
     color: var(--texto-blanco);
@@ -119,13 +53,92 @@ body {
 .game__btn:hover {
     background-color: var(--color-boton-hover);
 }
+.galeria{
+    border:1px solid red;
+    margin-top: 20px;
 
-/*Footer*/
-.footer {
-    background-color: var(--color-cabecera-footer);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+}
+.galeria__title{
+  color: var(--texto-subtitulos);   
+}
+/*juego.html*/
+.respuesta{
+    width:100px;
+}
+main section {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid var(--color-bordes);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.frase{
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--texto-subtitulos);
+    margin-bottom: 20px;
+}
+form {
+    margin-bottom: 20px;
+}
+
+.respuesta {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid var(--color-bordes);
+}
+button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--color-boton);
     color: var(--texto-blanco);
-    font-size: 15px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--color-boton-hover);
+}
+.resultado {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.idiomaTest {
+    margin-top: 10px;
+    font-style: italic;
+}
+.paises {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.paises h3 {
+    width: 100%;
+    color: var(--texto-subtitulos);
+    margin-bottom: 10px;
+}
+
+.bandera {
+    width: 80px;
+    height: auto;
+    border: 1px solid var(--color-bordes);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/*GALERÍA*/
+#galeriaGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
 }

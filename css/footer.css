@@ -1,0 +1,9 @@
+/*Footer*/
+.footer {
+    background-color: var(--color-cabecera-footer);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--texto-blanco);
+    font-size: 15px;
+}
