@@ -33,6 +33,23 @@ resultadoP.textContent= "";
 paisesDiv.innerHTML="";
 respuestaInput.value="";
 }
+// Detecta el idioma usando DetectLanguage API
+async function detectarIdioma(texto) {
+    const response = await fetch(detect_url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${detect_api_key}`
+        },
+        body: JSON.stringify({ q: texto })
+    });
+
+    const data = await response.json();
+    if (!data.data || data.data.detections.length === 0) {
+        return null;
+    }
+    return data.data.detections[0].language; 
+}
 
 // Eventos
 nuevaBtn.addEventListener("click",generarFrase);
