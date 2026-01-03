@@ -51,6 +51,14 @@ async function detectarIdioma(texto) {
     return data.data.detections[0].language; 
 }
 
+// Obtiene países donde se habla ese idioma con REST Countries API
+async function obtenerPaisesPorIdioma(code) {
+    const url = `${country_api_base}${code}`;
+    const response = await fetch(url);
+    if (!response.ok) return null;
+    const data = await response.json();
+    return data;
+}
 // Eventos
 nuevaBtn.addEventListener("click",generarFrase);
 
