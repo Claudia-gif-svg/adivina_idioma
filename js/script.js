@@ -1,6 +1,7 @@
 // APIS que voy a utilizar:
 // Mi API Key
-const detect_api_key = "Tu_API_KEY";
+const detect_api_key = "c5c94266037be2ffd8758bdf17e9a978"; 
+
 // URL de la API de detección de idioma
 const detect_url = "https://ws.detectlanguage.com/0.2/detect";
 
@@ -38,15 +39,14 @@ const nuevaBtn = document.getElementById("nuevaFrase");
 const comprobarBtn = document.getElementById("comprobar");
 
 // Constante con imagenes
-const imagenes = [
-    "../assets/images/idioma_aleman.jpg",
-    "../assets/images/idioma_espanol.jpg",
-    "../assets/images/idioma_frances.jpg",
-    "../assets/images/idioma_ingles.jpg",
-    "../assets/images/idioma_italiano.jpg",
-    "../assets/images/idioma_portugues.jpg"
-];
-
+const imagenesPorIdioma = {
+    es: "../assets/images/idioma_espanol.jpg",
+    en: "../assets/images/idioma_ingles.jpg",
+    fr: "../assets/images/idioma_frances.jpg",
+    de: "../assets/images/idioma_aleman.jpg",
+    it: "../assets/images/idioma_italiano.jpg",
+    pt: "../assets/images/idioma_portugues.jpg"
+};
 
 
 //Funcion para generar una frase
@@ -96,23 +96,28 @@ async function obtenerPaisesPorIdioma(code) {
     }
 }
 //Funcion para mostrar la galería
-function mostrarGaleria() {
+function mostrarGaleria(idiomaCode) {
     galeriaGrid.innerHTML = "";
 
-    imagenes.forEach(ruta => {
+    const ruta = imagenesPorIdioma[idiomaCode];
+    if (ruta) {
         const img = document.createElement("img");
         img.src = ruta;
         img.alt = "Imagen del idioma";
 
          img.classList.add("bandera"); 
         galeriaGrid.appendChild(img);
-    });
+    };
 }
 
 // Comprueba la respuesta del usuario
 async function comprobarRespuesta() {
     const frase = fraseP.textContent;
     const userAnswer = respuestaInput.value.trim().toLowerCase();
+if (userAnswer === "") {
+    resultadoP.textContent = "Escribe un idioma antes de comprobar.";
+    return;
+}
 
     if (!frase) {
         resultadoP.textContent = "Genera una frase primero.";
@@ -133,7 +138,8 @@ async function comprobarRespuesta() {
     } else {
         resultadoP.textContent = `Incorrecto. El idioma es: ${idiomaCorrecto}`;
     }
-
+ // Mostrar imagen del idioma
+    mostrarGaleria(detected);
     // Mostrar países
     const paises = await obtenerPaisesPorIdioma(detected);
 
@@ -158,4 +164,4 @@ nuevaBtn.addEventListener("click", generarFrase);
 comprobarBtn.addEventListener("click",comprobarRespuesta);
 // Genera una frase al cargar la página
 generarFrase();
-mostrarGaleria();
+
